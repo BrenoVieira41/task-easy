@@ -1,0 +1,20 @@
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL CHECK (LENGTH(name) >= 3 AND LENGTH(name) <= 255),
+  nick VARCHAR(255) NOT NULL CHECK (LENGTH(nick) >= 3 AND LENGTH(nick) <= 255),
+  email VARCHAR NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  password VARCHAR NOT NULL
+);
+
+CREATE TABLE tasks (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL CHECK (LENGTH(title) >= 3 AND LENGTH(title) <= 255),
+  topic VARCHAR(255) NOT NULL CHECK (LENGTH(topic) >= 3 AND LENGTH(topic) <= 255),
+  finished BOOLEAN,
+  time_amount FLOAT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT NOW(),
+  user_id INT,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
