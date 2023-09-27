@@ -13,7 +13,7 @@
 #### **Cloning**
 ```ps
 # Clone o repositório utilizando o git
-$ git clone (https://github.com/black-ctrl-alt-del/taskeasy-backend.git)
+$ git clone (https://github.com/BrenoVieira41/task-easy.git)
 ```
 
 ---
